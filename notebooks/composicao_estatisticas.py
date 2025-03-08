@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import os
+from scipy import stats
 
 def composicao_histograma_boxplot(dataframe, coluna, intervalos="auto", titulo="Título do Gráfico", nome_arquivo="distribuicao.png", salvar=False):
     # Definir o caminho para a pasta 'images'
@@ -86,3 +87,53 @@ def calcular_estatisticas(amostra):
         "3º Quartil": np.percentile(amostra, 75)
     }
     return estatisticas
+
+
+def teste_f_variancias(amostra1, amostra2, nome1="Grupo 1", nome2="Grupo 2", alpha=0.05):
+    print("=" * 50)
+    print(f" TESTE F PARA IGUALDADE DE VARIÂNCIAS ({nome1} vs. {nome2}) ")
+    print("=" * 50)
+
+    # Definição das hipóteses
+    print(f"""
+    H0: As variâncias de {nome1} e {nome2} são iguais.
+    H1: As variâncias de {nome1} e {nome2} são diferentes.
+    """)
+    
+    # Cálculo das variâncias amostrais
+    var1 = np.var(amostra1, ddof=1)
+    var2 = np.var(amostra2, ddof=1)
+
+    # Definição do F-Estatístico
+    if var1 > var2:
+        F = var1 / var2
+        df1, df2 = len(amostra1) - 1, len(amostra2) - 1
+    else:
+        F = var2 / var1
+        df1, df2 = len(amostra2) - 1, len(amostra1) - 1
+
+    # Cálculo do p-valor bicaudal
+    p_value_one_tailed = 1 - stats.f.cdf(F, df1, df2)
+    p_value_two_tailed = 2 * min(p_value_one_tailed, 1 - p_value_one_tailed)
+
+    # Exibir resultados
+    print("=" * 50)
+    print(" RESULTADOS DO TESTE F ")
+    print("=" * 50)
+    print(f"Variância de {nome1}     : {var1:.5f}")
+    print(f"Variância de {nome2}     : {var2:.5f}")
+    print(f"Estatística F            : {F:.5f}")
+    print(f"Graus de liberdade       : {df1}, {df2}")
+    print("-" * 50)
+    print(f"p-valor (bicaudal)       : {p_value_two_tailed * 100:.2f}%")
+    print("-" * 50)
+
+    # Interpretação
+    if p_value_two_tailed < alpha:
+        print("Decisão: Rejeitamos H0 → As variâncias são significativamente diferentes.")
+    else:
+        print("Decisão: Não rejeitamos H0 → As variâncias são estatisticamente iguais.")
+    
+    print("=" * 50)
+    
+    return p_value_two_tailed
