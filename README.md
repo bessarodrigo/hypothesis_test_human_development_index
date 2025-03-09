@@ -1,6 +1,6 @@
 # Teste de Hipóteses - Índice de Desenvolvimento Humano
 ## Média e Variância de duas populações
-Estudo realizado com base nos aprendizados do módulo de inferência estatística da Escola Preditiva. apliquei o conceito utilizado no Excel e repliquei no Python.
+Estudo realizado com base nos aprendizados do módulo de inferência estatística da [Escola Preditiva](https://www.preditiva.ai/). Apliquei o conceito utilizado no Excel e repliquei no Python.
 
 # Problema de Negócio
 A Secretaria da Educação solicitou a análise do IDHM Educação por região para avaliar se a diferença no índice, observada entre as regiões, é estatisticamente significante. Para isso, consolidou a base de dados das 3 principais regiões a serem avaliadas: Norte, Nordeste e Sul com uma amostra de seus municípios.
