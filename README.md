@@ -27,7 +27,7 @@ Para cada Teste de Hipóteses, serão realizados os seguintes passos:
 
 # Resultado
 **Nordeste x Sul**
-Como o p-valor é menor que 5%, rejeitamos H0. Então existem evidências estatísticas que o IDHM do Nordeste é menor que o do Sul.
+- Como o p-valor é menor que 5%, rejeitamos H0. Então existem evidências estatísticas que o IDHM do Nordeste é menor que o do Sul.
 
 **Nordeste x Norte**
-Como o p-valor é maior que 5%, não rejeitamos H0. Não existem evidências estatísticas que o IDHM do Norte é maior que o IDHM do Nordeste.
+- Como o p-valor é maior que 5%, não rejeitamos H0. Não existem evidências estatísticas que o IDHM do Norte é maior que o IDHM do Nordeste.
