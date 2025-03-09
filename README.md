@@ -1,5 +1,5 @@
 # Teste de Hipóteses - Índice de Desenvolvimento Humano
-## Testes de Hipóteses | Média e Variância de duas populações
+## Média e Variância de duas populações
 
 # Problema de Negócio
 A Secretaria da Educação solicitou a análise do IDHM Educação por região para avaliar se a diferença no índice, observada entre as regiões, é estatisticamente significante. Para isso, consolidou a base de dados das 3 principais regiões a serem avaliadas: Norte, Nordeste e Sul com uma amostra de seus municípios.
